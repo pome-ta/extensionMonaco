@@ -5,6 +5,11 @@
     "action": {},
     "description": "monaco test",
     "background": {
-        "service_worker": "./background.js"
+        "service_worker": "background.js"
+    },
+    "sandbox": {
+        "pages": [
+            "src/sandbox/sandbox.html"
+        ]
     }
 }

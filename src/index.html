@@ -1,25 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <meta name="viewport"
-    content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 
   <script src="./js/package/dev/vs/loader.js"></script>
   <script type="module" src="./js/main.js"></script>
-  <link rel="stylesheet" href="./css/style.css">
 
-  <title>monaco テスト</title>
+  <link rel="stylesheet" href="./css/bootstrap-reboot.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <title>jsSandbox</title>
 </head>
 
 <body>
+  <iframe id="sandbox" src="./sandbox/sandbox.html" style="display: none"></iframe>
   <div id="wrapper">
-    <div id="container"></div>
-
-
+    <div id="editorWrap">
+      <div id="monacoEditor"></div>
+    </div>
+    <div id="controller">
+      <button id="runCode" class="commands">🏃Run [alt + Enter]</button>
+      <button id="clearConsole" class="commands">🧹Console Clear</button>
+    </div>
+    <div id="boxConsole"></div>
   </div>
-
 </body>
 
 </html>
