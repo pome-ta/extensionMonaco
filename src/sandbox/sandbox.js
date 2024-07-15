@@ -1,19 +1,18 @@
-const sbTag = document.createElement('div');
+let consoleResult;
 
-console.log = function (log) {
-  sbTag.innerHTML += log + '\n';
+console.log = function (...log) {
+  consoleResult += log.map((lg) => JSON.stringify(lg)) + '\n';
 };
 
 window.addEventListener('message', (e) => {
-  sbTag.innerHTML = '';
-  const date = new Date();
-  const timeStr = date.toLocaleTimeString();
+  consoleResult = '';
+  const timeStr = new Date().toLocaleTimeString();
   const code = e.data;
   try {
     eval(code);
     e.source.postMessage(
       {
-        result: { time: timeStr, success: true, code: sbTag.textContent },
+        result: { time: timeStr, success: true, code: consoleResult },
         isSandbox: true,
       },
       e.origin
